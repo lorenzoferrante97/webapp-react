@@ -1,1 +1,7 @@
-@import './theme/theme.css';
+@import "./theme/theme.css";
+
+/* active */
+
+.active {
+  @apply bg-indigo-100 text-indigo-500;
+}

@@ -1,4 +1,4 @@
-@import './theme-variables.css';
+@import "./theme-variables.css";
 
 @layer components {
   /* ANCHOR FONTS */
@@ -6,34 +6,34 @@
   /* --- Display */
 
   .font-display-1 {
-    @apply xl:text-10xl font-custom leading-default text-8xl font-medium md:text-9xl;
+    @apply xl:text-10xl font-heading leading-default text-8xl font-medium md:text-9xl;
   }
   .font-display-2 {
-    @apply font-custom leading-default text-7xl font-medium md:text-8xl xl:text-9xl;
+    @apply font-heading leading-default text-7xl font-medium md:text-8xl xl:text-9xl;
   }
   .font-display-3 {
-    @apply font-custom leading-default text-6xl font-medium md:text-7xl xl:text-8xl;
+    @apply font-heading leading-default text-6xl font-medium md:text-7xl xl:text-8xl;
   }
 
   /* --- Headings */
 
   .font-h1 {
-    @apply font-custom leading-default text-5xl font-bold md:text-6xl xl:text-7xl;
+    @apply font-heading leading-default text-5xl font-bold md:text-6xl xl:text-7xl;
   }
   .font-h2 {
-    @apply font-custom text-4xl leading-normal font-bold md:text-5xl xl:text-6xl;
+    @apply font-heading text-4xl leading-normal font-bold md:text-5xl xl:text-6xl;
   }
   .font-h3 {
-    @apply font-custom text-2xl leading-normal font-semibold md:text-3xl xl:text-4xl;
+    @apply font-heading text-2xl leading-normal font-semibold md:text-3xl xl:text-4xl;
   }
   .font-h4 {
-    @apply font-custom text-xl leading-normal font-semibold md:text-2xl xl:text-3xl;
+    @apply font-heading text-xl leading-normal font-semibold md:text-2xl xl:text-3xl;
   }
   .font-h5 {
-    @apply font-custom text-lg leading-normal font-semibold md:text-xl xl:text-2xl;
+    @apply font-heading text-lg leading-normal font-semibold md:text-xl xl:text-2xl;
   }
   .font-h6 {
-    @apply font-custom text-lg leading-normal font-normal xl:text-xl;
+    @apply font-heading text-lg leading-normal font-normal xl:text-xl;
   }
 
   /* --- Body */
@@ -41,49 +41,49 @@
   /* l */
 
   .font-body-l-light {
-    @apply font-custom text-xl leading-loose font-light tracking-normal;
+    @apply font-body text-xl leading-loose font-light tracking-normal;
   }
   .font-body-l-regular {
-    @apply font-custom text-xl leading-loose font-normal tracking-normal;
+    @apply font-body text-xl leading-loose font-normal tracking-normal;
   }
   .font-body-l-bold {
-    @apply font-custom text-xl leading-loose font-bold tracking-wide;
+    @apply font-body text-xl leading-loose font-bold tracking-normal;
   }
 
   /* m */
 
   .font-body-m-light {
-    @apply font-custom text-lg leading-loose font-light tracking-normal;
+    @apply font-body text-lg leading-loose font-light tracking-normal;
   }
   .font-body-m-regular {
-    @apply font-custom text-lg leading-loose font-normal tracking-normal;
+    @apply font-body text-lg leading-loose font-normal tracking-normal;
   }
   .font-body-m-bold {
-    @apply font-custom text-lg leading-loose font-bold tracking-wide;
+    @apply font-body text-lg leading-loose font-bold tracking-normal;
   }
 
   /* base */
 
   .font-body-base-light {
-    @apply font-custom text-base leading-loose font-light tracking-normal;
+    @apply font-body text-base leading-loose font-light tracking-normal;
   }
   .font-body-base-regular {
-    @apply font-custom text-base leading-loose font-normal tracking-normal;
+    @apply font-body text-base leading-loose font-normal tracking-normal;
   }
   .font-body-base-bold {
-    @apply font-custom text-base leading-loose font-semibold tracking-wide;
+    @apply font-body text-base leading-loose font-semibold tracking-normal;
   }
 
   /* s */
 
   .font-body-s-light {
-    @apply font-custom text-sm leading-loose font-light tracking-normal;
+    @apply font-body text-sm leading-loose font-light tracking-normal;
   }
   .font-body-s-regular {
-    @apply font-custom text-sm leading-loose font-normal tracking-normal;
+    @apply font-body text-sm leading-loose font-normal tracking-normal;
   }
   .font-body-s-bold {
-    @apply font-custom text-sm leading-loose font-semibold tracking-wide;
+    @apply font-body text-sm leading-loose font-semibold tracking-normal;
   }
 
   /* ANCHOR CONTAINERS */

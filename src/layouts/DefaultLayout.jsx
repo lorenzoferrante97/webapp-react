@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/sections/Header"
+import Header from "../components/sections/Header";
 
 export default function DefaultLayout() {
   return (
     <>
-      <section className="wrapper font-custom">
+      <section className='wrapper bg-smoke-50 pt-10u'>
         <Header />
         <Outlet />
       </section>
