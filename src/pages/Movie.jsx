@@ -21,7 +21,7 @@ export default function Movie() {
         <section className='perfect-center relative flex h-[28vh] w-full'>
           <h1 className='font-display-1'>{title}</h1>
         </section>
-        <section className='relative flex h-screen w-full flex-col items-center rounded-xl bg-white shadow-2xl'>
+        <section className='gap-12u relative flex min-h-screen w-full flex-col items-center rounded-xl bg-white shadow-2xl'>
           <figure className='relative top-[-40px] aspect-[2/3] w-[280px] overflow-hidden rounded-md shadow-lg'>
             <img
               src={imagePath}
@@ -55,6 +55,29 @@ export default function Movie() {
                 <p className='font-h4'>Abstract</p>
                 <p className='font-body-base-regular text-center'>{abstract}</p>
               </div>
+            </div>
+          </div>
+
+          {/* reviews */}
+          <div className='gap-10u flex w-full max-w-[92%] flex-col items-center md:max-w-[48%]'>
+            <h2 className='font-display-3'>Reviews</h2>
+            <div className='gap-3u flex w-full flex-col items-center'>
+              {reviews?.map(review => {
+                const { id, name, vote, text } = review;
+                return (
+                  <div
+                    key={id}
+                    className='gap-2u p-4u border-smoke-100 flex w-full flex-col rounded-lg border'>
+                    <p className='font-body-l-bold text-smoke-950'>{name}</p>
+                    <p>{vote}</p>
+                    <p className='font-body-l-bold text-smoke-700'>
+                      <span className='text-smoke-300 text-7xl'>"</span>
+                      {text}
+                      <span className='text-smoke-300 text-7xl'>"</span>
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
