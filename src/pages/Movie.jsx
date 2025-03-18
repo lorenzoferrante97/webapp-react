@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GlobalProvider, useGlobalContext } from "../contexts/GlobalContext";
 
@@ -7,9 +7,11 @@ export default function Movie() {
 
   const { movie, fetchMovie } = useGlobalContext();
 
-  useEffect(() => {
-    fetchMovie(id);
-  }, [id]);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => fetchMovie(id), [id]);
+
+  useEffect(() => setReviews(movie?.reviews), [movie]);
 
   const { title, imagePath, director, genre, release_year, abstract } = movie;
 
