@@ -10,7 +10,7 @@ export default function MoviesList() {
   return (
     <>
       <section className='row-grid'>
-        {movies.map(movie => {
+        {movies?.map(movie => {
           const { id } = movie;
 
           return (
