@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GlobalProvider, useGlobalContext } from "../contexts/GlobalContext";
+import { Star } from "@phosphor-icons/react";
 
 export default function Movie() {
   const { id } = useParams();
@@ -8,6 +9,10 @@ export default function Movie() {
   const { movie, fetchMovie } = useGlobalContext();
 
   const [reviews, setReviews] = useState([]);
+
+  const reviewStars = ["regular", "regular", "regular", "regular", "regular"];
+  const StarsColorFilled = "#FFD230";
+  const StarsColorOutline = "#FFB900";
 
   useEffect(() => fetchMovie(id), [id]);
 
@@ -64,16 +69,34 @@ export default function Movie() {
             <div className='gap-3u flex w-full flex-col items-center'>
               {reviews?.map(review => {
                 const { id, name, vote, text } = review;
+                console.log("vote: ", vote);
                 return (
                   <div
                     key={id}
                     className='gap-2u p-4u border-smoke-100 flex w-full flex-col rounded-lg border'>
                     <p className='font-body-l-bold text-smoke-950'>{name}</p>
-                    <p>{vote}</p>
-                    <p className='font-body-l-bold text-smoke-700'>
-                      <span className='text-smoke-300 text-7xl'>"</span>
+                    {/* stars */}
+                    <div className='gap-u flex items-center'>
+                      {reviewStars.map((starStyle, i) => {
+                        return i <= vote - 1 ? (
+                          <Star
+                            weight='fill'
+                            key={i}
+                            color={StarsColorFilled}
+                          />
+                        ) : (
+                          <Star
+                            weight={starStyle}
+                            key={i}
+                            color={StarsColorOutline}
+                          />
+                        );
+                      })}
+                    </div>
+                    <p className='font-body-l-regular text-smoke-700'>
+                      <span className='text-smoke-300'>"</span>
                       {text}
-                      <span className='text-smoke-300 text-7xl'>"</span>
+                      <span className='text-smoke-300'>"</span>
                     </p>
                   </div>
                 );
