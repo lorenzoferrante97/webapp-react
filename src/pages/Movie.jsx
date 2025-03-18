@@ -5,16 +5,19 @@ import { GlobalProvider, useGlobalContext } from "../contexts/GlobalContext";
 export default function Movie() {
   const { id } = useParams();
 
-  const { fetchMovie } = useGlobalContext();
+  const { movie, fetchMovie } = useGlobalContext();
 
   useEffect(() => {
     fetchMovie(id);
   });
 
+  console.log("movie: ", movie);
+  const { title } = movie;
+
   return (
     <>
       <main className='container-fluid py-10u min-h-screen max-w-[92%] bg-white'>
-        <h1 className='font-h1'>Titolo Movie</h1>
+        <h1 className='font-h1'>{title}</h1>
       </main>
     </>
   );
