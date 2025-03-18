@@ -18,9 +18,9 @@ export default function Card({ content }) {
           <span className='px-3u py-2u font-body-s-bold w-fit rounded-md bg-indigo-50 text-indigo-500'>
             {genre}
           </span>
-          <p className='font-body-l-bold'>{title}</p>
+          <p className='font-body-l-bold text-smoke-950'>{title}</p>
         </div>
-        <button className='px-7u py-4u min-h-[48px] rounded-full bg-indigo-600 text-white md:w-fit'>
+        <button className='px-7u py-4u min-h-[48px] rounded-full bg-indigo-600 text-white transition-all hover:cursor-pointer hover:bg-black hover:text-indigo-200 md:w-fit'>
           <Link to={`/movie/${id}`}>Leggi le Recensioni</Link>
         </button>
       </div>
