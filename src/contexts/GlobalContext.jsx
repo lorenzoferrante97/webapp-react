@@ -26,7 +26,7 @@ const GlobalProvider = ({ children }) => {
       });
   };
 
-  const value = { movies, movie };
+  const value = { movies, movie, fetchMovies, fetchMovie };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
