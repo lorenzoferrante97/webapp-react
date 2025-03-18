@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import Nav from "../Nav";
 
 export default function Header() {
   return (
@@ -10,17 +10,7 @@ export default function Header() {
             <span className='font-h5'>BoolMovies</span>
           </div>
           {/* nav */}
-          <nav>
-            <ul>
-              <li>
-                <NavLink
-                  className='px-3u py-2u font-body-l-regular text-smoke-950 rounded-full'
-                  to={"/"}>
-                  Home
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+          <Nav />
         </div>
       </header>
     </>
