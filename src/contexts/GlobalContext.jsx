@@ -26,7 +26,15 @@ const GlobalProvider = ({ children }) => {
       });
   };
 
-  const value = { movies, movie, fetchMovies, fetchMovie };
+  // input -> onChange
+  const [formData, setFormData] = useState({ name: "", vote: 0, text: "" });
+
+  const handleMultiInput = e => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const value = { movies, movie, fetchMovies, fetchMovie, handleMultiInput };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
