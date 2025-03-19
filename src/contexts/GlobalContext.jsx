@@ -26,6 +26,27 @@ const GlobalProvider = ({ children }) => {
       });
   };
 
+  // fetch create review
+  const [formResult, setFormResult] = useState(null);
+
+  const fetchCreateReview = formData => {
+    const { name, vote, text } = formData;
+
+    fetch(`http://localhost:3000/movies/${id}/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name: name, vote: vote, text: text })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .then(setFormResult("Recensione Inserita."))
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   // input -> onChange
   const [formData, setFormData] = useState({ name: "", vote: 0, text: "" });
 
@@ -37,6 +58,8 @@ const GlobalProvider = ({ children }) => {
   // form submit
   const handleSubmit = (e, formData) => {
     e.preventDefault();
+
+    fetchCreateReview(formData);
   };
 
   const value = {
