@@ -1,7 +1,10 @@
 import Review from "../Review";
+import { useGlobalContext } from "../../contexts/GlobalContext";
 
 export default function Reviews({ content }) {
   const reviews = content;
+
+  const { handleMultiInput } = useGlobalContext();
 
   return (
     <>
@@ -24,6 +27,7 @@ export default function Reviews({ content }) {
                   name='name'
                   placeholder='Mario'
                   className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] rounded-md border bg-white'
+                  onChange={handleMultiInput}
                 />
               </div>
               {/* vote */}
@@ -35,7 +39,8 @@ export default function Reviews({ content }) {
                 </label>
                 <select
                   name='vote'
-                  className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] rounded-md border bg-white'>
+                  className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] rounded-md border bg-white'
+                  onChange={handleMultiInput}>
                   <option value='5'>⭐⭐⭐⭐⭐</option>
                   <option value='4'>⭐⭐⭐⭐</option>
                   <option value='3'>⭐⭐⭐</option>
@@ -53,8 +58,15 @@ export default function Reviews({ content }) {
                 <textarea
                   name='text'
                   placeholder='Film spettacolare!'
-                  className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] min-h-[120px] rounded-md border bg-white'></textarea>
+                  className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[120px] rounded-md border bg-white'
+                  onChange={handleMultiInput}></textarea>
               </div>
+              {/* button */}
+              <button
+                type='submit'
+                className='px-7u py-4u min-h-[48px] w-full self-start rounded-full bg-indigo-600 text-white transition-all hover:cursor-pointer hover:bg-black hover:text-indigo-200 md:w-fit'>
+                Invia Recensione
+              </button>
             </form>
           </div>
           {/* reviews list */}

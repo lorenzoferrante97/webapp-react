@@ -10,7 +10,7 @@ export default function Movie() {
 
   const [reviews, setReviews] = useState([]);
 
-  useEffect(() => window.scrollTo(0, 0));
+  // useEffect(() => window.scrollTo(0, 0));
   useEffect(() => fetchMovie(id), [id]);
   useEffect(() => setReviews(movie?.reviews), [movie]);
 
