@@ -1,10 +1,11 @@
 import Review from "../Review";
 import { useGlobalContext } from "../../contexts/GlobalContext";
 
-export default function Reviews({ content }) {
+export default function Reviews({ content, movieId }) {
   const reviews = content;
 
-  const { formData, handleMultiInput } = useGlobalContext();
+  const { formData, formResult, handleMultiInput, handleSubmit } =
+    useGlobalContext();
 
   return (
     <>
@@ -14,7 +15,9 @@ export default function Reviews({ content }) {
         <div className='row-grid relative w-full'>
           {/* reviews form */}
           <div className='bg-smoke-50 p-4u col-span-full h-fit rounded-lg md:sticky md:top-[160px] md:col-span-4 xl:col-span-5'>
-            <form className='gap-3u flex flex-col'>
+            <form
+              className='gap-3u flex flex-col'
+              onSubmit={e => handleSubmit(e, formData, movieId)}>
               {/* user name */}
               <div className='gap-u flex flex-col'>
                 <label
@@ -64,9 +67,12 @@ export default function Reviews({ content }) {
               {/* button */}
               <button
                 type='submit'
-                className='px-7u py-4u min-h-[48px] w-full self-start rounded-full bg-indigo-600 text-white transition-all hover:cursor-pointer hover:bg-black hover:text-indigo-200 md:w-fit'>
+                className='px-7u py-4u min-h-[48px] w-full self-start rounded-full bg-indigo-600 text-white transition-all hover:cursor-pointer hover:bg-black hover:text-indigo-200 md:w-fit'
+                onClick={e => handleSubmit(e, formData, movieId)}>
                 Invia Recensione
               </button>
+              {/* form result */}
+              <p className='font-body-s-default text-smoke-700'>{formResult}</p>
             </form>
           </div>
           {/* reviews list */}

@@ -29,9 +29,8 @@ const GlobalProvider = ({ children }) => {
   // fetch create review
   const [formResult, setFormResult] = useState(null);
 
-  const fetchCreateReview = formData => {
+  const fetchCreateReview = (formData, id) => {
     const { name, vote, text } = formData;
-
     fetch(`http://localhost:3000/movies/${id}/reviews`, {
       method: "POST",
       headers: {
@@ -56,19 +55,21 @@ const GlobalProvider = ({ children }) => {
   };
 
   // form submit
-  const handleSubmit = (e, formData) => {
+  const handleSubmit = (e, formData, movieId) => {
     e.preventDefault();
 
-    fetchCreateReview(formData);
+    fetchCreateReview(formData, movieId);
   };
 
   const value = {
     movies,
     movie,
     formData,
+    formResult,
     fetchMovies,
     fetchMovie,
-    handleMultiInput
+    handleMultiInput,
+    handleSubmit
   };
 
   return (
