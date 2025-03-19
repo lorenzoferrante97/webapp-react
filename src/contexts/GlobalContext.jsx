@@ -59,6 +59,7 @@ const GlobalProvider = ({ children }) => {
     e.preventDefault();
 
     fetchCreateReview(formData, movieId);
+    fetchMovie(movieId);
   };
 
   const value = {
