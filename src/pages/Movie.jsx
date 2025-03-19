@@ -17,11 +17,11 @@ export default function Movie() {
 
   return (
     <>
-      <main className='container-full z-0 items-center'>
+      <main className='container-full pb-12u z-0 items-center'>
         <section className='perfect-center relative flex h-[28vh] w-full'>
           <h1 className='font-display-1'>{title}</h1>
         </section>
-        <section className='gap-12u relative flex min-h-screen w-full flex-col items-center rounded-xl bg-white shadow-2xl'>
+        <section className='gap-12u pb-12u relative flex min-h-screen w-full flex-col items-center rounded-xl bg-white shadow-2xl'>
           <figure className='relative top-[-40px] aspect-[2/3] w-[280px] overflow-hidden rounded-md shadow-lg'>
             <img
               src={imagePath}
