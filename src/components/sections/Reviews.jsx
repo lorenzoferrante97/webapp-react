@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../contexts/GlobalContext";
 export default function Reviews({ content }) {
   const reviews = content;
 
-  const { handleMultiInput } = useGlobalContext();
+  const { formData, handleMultiInput } = useGlobalContext();
 
   return (
     <>

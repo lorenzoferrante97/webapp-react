@@ -34,7 +34,19 @@ const GlobalProvider = ({ children }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const value = { movies, movie, fetchMovies, fetchMovie, handleMultiInput };
+  // form submit
+  const handleSubmit = (e, formData) => {
+    e.preventDefault();
+  };
+
+  const value = {
+    movies,
+    movie,
+    formData,
+    fetchMovies,
+    fetchMovie,
+    handleMultiInput
+  };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
