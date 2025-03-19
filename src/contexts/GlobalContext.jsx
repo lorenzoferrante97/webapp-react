@@ -40,7 +40,7 @@ const GlobalProvider = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => console.log(data))
-      .then(setFormResult("Recensione Inserita."))
+      .then(() => setFormResult("Recensione Inserita."))
       .catch(error => {
         console.error(error);
       });
