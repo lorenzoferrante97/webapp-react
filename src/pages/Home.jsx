@@ -1,6 +1,9 @@
 import MoviesList from "../components/MoviesList";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => window.scrollTo(0, 0));
+
   return (
     <>
       <main className='container-fluid gap-36u pb-12u z-0 items-center'>
