@@ -1,11 +1,18 @@
 import Review from "../Review";
 import { useGlobalContext } from "../../contexts/GlobalContext";
+import { Star } from "@phosphor-icons/react";
 
 export default function Reviews({ content, movieId }) {
   const reviews = content;
 
-  const { formData, formResult, handleMultiInput, handleSubmit } =
+  const reviewStars = ["regular", "regular", "regular", "regular", "regular"];
+  const StarsColorFilled = "#FFD230";
+  const StarsColorOutline = "#FFB900";
+
+  const { movie, formData, formResult, handleMultiInput, handleSubmit } =
     useGlobalContext();
+
+  const { average_vote } = movie;
 
   return (
     <>
@@ -78,6 +85,24 @@ export default function Reviews({ content, movieId }) {
           </div>
           {/* reviews list */}
           <div className='gap-3u col-span-full flex flex-col items-center md:col-span-4 xl:col-span-7'>
+            {/* reviews average vote */}
+            <div className='gap-3u flex w-full flex-wrap items-center self-start'>
+              <p className='font-body-l-bold'>Media Voti</p>
+              <span className='flex items-center'>
+                {reviewStars.map((starStyle, i) => {
+                  return i <= average_vote - 1 ? (
+                    <Star weight='fill' key={i} color={StarsColorFilled} />
+                  ) : (
+                    <Star
+                      weight={starStyle}
+                      key={i}
+                      color={StarsColorOutline}
+                    />
+                  );
+                })}
+              </span>
+              <div className='bg-smoke-50 h-[1px] w-full'></div>
+            </div>
             {reviews?.map(review => {
               const { id } = review;
               return <Review content={review} key={id} />;
