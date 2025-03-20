@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/sections/Header";
+import Loader from "../components/Loader";
 
 export default function DefaultLayout() {
   return (

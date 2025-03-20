@@ -58,8 +58,23 @@ const GlobalProvider = ({ children }) => {
   const handleSubmit = (e, formData, movieId) => {
     e.preventDefault();
 
+    setIsFormValid(() => validateForm(formData));
+
     fetchCreateReview(formData, movieId);
     fetchMovie(movieId);
+  };
+
+  // validation
+
+  const [isFormValid, setIsFormValid] = useState({ isValid: true, error: "" });
+
+  const validateForm = formData => {
+    const { name, vote, text } = formData;
+
+    if (!name || name === "") {
+      return { isValid: false, error: "Il campo 'Il tuo nome' è obbligatorio" };
+    }
+    return { isValid: true, error: "" };
   };
 
   const value = {
@@ -67,6 +82,7 @@ const GlobalProvider = ({ children }) => {
     movie,
     formData,
     formResult,
+    isFormValid,
     fetchMovies,
     fetchMovie,
     handleMultiInput,

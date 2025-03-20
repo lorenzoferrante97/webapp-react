@@ -9,8 +9,14 @@ export default function Reviews({ content, movieId }) {
   const StarsColorFilled = "#FFD230";
   const StarsColorOutline = "#FFB900";
 
-  const { movie, formData, formResult, handleMultiInput, handleSubmit } =
-    useGlobalContext();
+  const {
+    movie,
+    formData,
+    formResult,
+    isFormValid,
+    handleMultiInput,
+    handleSubmit
+  } = useGlobalContext();
 
   const { average_vote } = movie;
 
@@ -30,11 +36,12 @@ export default function Reviews({ content, movieId }) {
                 <label
                   htmlFor='name'
                   className='font-body-base-bold text-smoke-700 px-3u'>
-                  Il tuo nome
+                  Il tuo nome<span>*</span>
                 </label>
                 <input
                   type='text'
                   name='name'
+                  required
                   placeholder='Mario'
                   className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] rounded-md border bg-white'
                   onChange={handleMultiInput}
@@ -81,6 +88,9 @@ export default function Reviews({ content, movieId }) {
               </button>
               {/* form result */}
               <p className='font-body-s-default text-smoke-700'>{formResult}</p>
+              <p className={isFormValid.isValid && "hidden"}>
+                {isFormValid.error}
+              </p>
             </form>
           </div>
           {/* reviews list */}
