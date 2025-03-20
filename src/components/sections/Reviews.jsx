@@ -44,6 +44,7 @@ export default function Reviews({ content, movieId }) {
                   name='vote'
                   className='border-smoke-100 px-3u py-2u font-body-base-regular min-h-[48px] rounded-md border bg-white'
                   onChange={handleMultiInput}>
+                  <option disabled>Scegli un voto</option>
                   <option value='5'>⭐⭐⭐⭐⭐</option>
                   <option value='4'>⭐⭐⭐⭐</option>
                   <option value='3'>⭐⭐⭐</option>
