@@ -4,8 +4,9 @@ import Card from "./Card";
 
 export default function MoviesList() {
   const { movies, fetchMovies } = useGlobalContext();
+  const { isLoading } = useGlobalContext();
 
-  useEffect(() => fetchMovies());
+  useEffect(() => fetchMovies(isLoading), []);
 
   return (
     <>

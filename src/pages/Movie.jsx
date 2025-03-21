@@ -6,12 +6,12 @@ import Reviews from "../components/sections/Reviews";
 export default function Movie() {
   const { id } = useParams();
 
-  const { movie, fetchMovie } = useGlobalContext();
+  const { movie, isLoading, fetchMovie } = useGlobalContext();
 
   const [reviews, setReviews] = useState([]);
 
   // useEffect(() => window.scrollTo(0, 0));
-  useEffect(() => fetchMovie(id), [id]);
+  useEffect(() => fetchMovie(id, isLoading), [id]);
   useEffect(() => setReviews(movie?.reviews), [movie]);
 
   const { title, imagePath, director, genre, release_year, abstract } = movie;

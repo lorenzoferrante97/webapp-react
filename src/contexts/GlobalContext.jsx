@@ -7,23 +7,29 @@ const GlobalProvider = ({ children }) => {
   const [movie, setMovie] = useState({});
 
   // fetch movies
-  const fetchMovies = () => {
+  const fetchMovies = isLoading => {
+    setIsLoading(isLoading);
+
     fetch("http://localhost:3000/movies")
       .then(response => response.json())
       .then(data => setMovies(data))
       .catch(error => {
         console.error(error);
-      });
+      })
+      .then(() => setIsLoading(false));
   };
 
   // fetch movie
-  const fetchMovie = id => {
+  const fetchMovie = (id, isLoading) => {
+    setIsLoading(true);
+
     fetch(`http://localhost:3000/movies/${id}`)
       .then(response => response.json())
       .then(data => setMovie(data))
       .catch(error => {
         console.error(error);
-      });
+      })
+      .then(() => setIsLoading(false));
   };
 
   // fetch create review
@@ -77,12 +83,16 @@ const GlobalProvider = ({ children }) => {
     return { isValid: true, error: "" };
   };
 
+  //loader
+  const [isLoading, setIsLoading] = useState(true);
+
   const value = {
     movies,
     movie,
     formData,
     formResult,
     isFormValid,
+    isLoading,
     fetchMovies,
     fetchMovie,
     handleMultiInput,
